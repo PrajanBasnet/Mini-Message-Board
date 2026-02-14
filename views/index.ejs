@@ -1,16 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>MiniApp</title>
 </head>
+
 <body>
-    <h1>Messages</h1>
-    <ul>
+    <nav class="nav">
+        <div class="msgLogo">
+            <a href="#">MSGBoard</a>
+        </div>
+        <button id="newMsg">
+            Add Message
+        </button>
+    </nav>
+
+    <ul class="wrapper">
         <% messages.forEach((message)=>{ %>
             <li><%- include('message/msg',{message:message})%></li>
             <% }) %>
     </ul>
+
+    <dialog id="myDialog">
+        <div>
+            <p id="close">Close</p>
+   <form action="/" method="post" class="form">
+    <div class="form-group">
+        <label for="user">Username</label>
+        <input type="text" name="user" id="user" required>
+    </div>
+
+    <div class="form-group">
+        <label for="msg">Message</label>
+        <textarea name="msg" id="msg" rows="4" required></textarea>
+    </div>
+
+    <button type="submit">Send Message</button>
+</form>
+
+
+        </div>
+    </dialog>
 </body>
+<script>
+    const openDialog = document.querySelector("#newMsg");
+    const myDialog = document.querySelector("#myDialog");
+    const closeDialog = document.querySelector("#close");
+
+    openDialog.addEventListener("click", (e) => {
+        e.preventDefault();
+        myDialog.showModal();
+    })
+    closeDialog.addEventListener("click",(e)=>{
+        myDialog.close();
+    })
+</script>
+
 </html>
