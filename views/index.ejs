@@ -27,19 +27,19 @@
     <dialog id="myDialog">
         <div>
             <p id="close">Close</p>
-   <form action="/" method="post" class="form">
-    <div class="form-group">
-        <label for="user">Username</label>
-        <input type="text" name="user" id="user" required>
-    </div>
+            <form action="/" method="post" class="form">
+                <div class="form-group">
+                    <label for="user">Username</label>
+                    <input type="text" name="user" id="user" required>
+                </div>
 
-    <div class="form-group">
-        <label for="msg">Message</label>
-        <textarea name="msg" id="msg" rows="4" required></textarea>
-    </div>
+                <div class="form-group">
+                    <label for="msg">Message</label>
+                    <textarea name="msg" id="msg" rows="4" required></textarea>
+                </div>
 
-    <button type="submit">Send Message</button>
-</form>
+                <button type="submit">Send Message</button>
+            </form>
 
 
         </div>
@@ -54,7 +54,7 @@
         e.preventDefault();
         myDialog.showModal();
     })
-    closeDialog.addEventListener("click",(e)=>{
+    closeDialog.addEventListener("click", (e) => {
         myDialog.close();
     })
 </script>
